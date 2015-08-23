@@ -3,7 +3,7 @@
 library(ggplot2)
 ```
 
-##Loading the data
+##Data
 ###1. Loading the data
 ```{r read_data}
 activity <- read.csv("activity.csv")
@@ -89,7 +89,7 @@ activity2$daytype = weekdays (as.Date(activity2$date))
 ###2. Make a panel plot containing a time series plot
 ```{r}
 for (i in 1:dim(activity2)[1]){
-  if(activity2[i,4] == c("Saturday","Sunday")) {
+  if(activity2[i,4] %in% c("Saturday","Sunday")) {
     activity2[i,4] = "weekend"
   }
    else{

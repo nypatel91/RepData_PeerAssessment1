@@ -42,7 +42,7 @@ mediansteps2 <- median(stepsbyDay2)
 activity2$daytype = weekdays (as.Date(activity2$date))
 
 for (i in 1:dim(activity2)[1]){
-  if(activity2[i,4] == c("Saturday","Sunday")) {
+  if(activity2[i,4] %in% c("Saturday","Sunday")) {
     activity2[i,4] = "weekend"
   }
    else{
