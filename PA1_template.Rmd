@@ -1,4 +1,4 @@
-#Reproducible Research : Peer Assessment 1
+##Reproducible Research : Peer Assessment 1
 ```{r intial}
 library(ggplot2)
 ```
@@ -9,7 +9,7 @@ library(ggplot2)
 activity <- read.csv("activity.csv")
 ```
 
-#What is mean total number of steps taken per day ?
+##What is mean total number of steps taken per day ?
 ```{r steps_day}
 stepsbyDay <- tapply(activity$steps,activity$date,sum,na.rm=TRUE)
 ```
@@ -46,7 +46,7 @@ print(si)
 mostSteps <- which.max(tsSteps$meanSteps)
 ```
 
-#Imputing Missing Values
+##Imputing Missing Values
 ###1. Calculate the total number of missing values in the data
 ```{r}
 nMissing <- length(which(is.na(activity$steps)))
@@ -80,13 +80,13 @@ hist(stepsbyDay2,xlab = "Number of Steps per Day",
 meansteps2 <- mean(stepsbyDay2)
 mediansteps2 <- median(stepsbyDay2)
 ```
-#Are there differences in activity patterns between weekdays and weekends?
-##1. Create a new factor variable in the dataset with two levels – “weekday” and “weekend” indicating whether a given date is a weekday or weekend day.
+##Are there differences in activity patterns between weekdays and weekends?
+###1. Create a new factor variable in the dataset with two levels – “weekday” and “weekend” indicating whether a given date is a weekday or weekend day.
 ```{r}
 activity2$daytype = weekdays (as.Date(activity2$date))
 ```
 
-##2. Make a panel plot containing a time series plot
+###2. Make a panel plot containing a time series plot
 ```{r}
 for (i in 1:dim(activity2)[1]){
   if(activity2[i,4] == c("Saturday","Sunday")) {
